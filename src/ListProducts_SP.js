@@ -13,23 +13,25 @@ const ListProducts_SP = () => {
           .from("product1")
           .select("*")
           .order("id", { ascending: true });
+
         if (error) throw error;
         setListProduct(data);
       } catch (err) {
         console.error("Lỗi khi lấy dữ liệu:", err.message);
       }
     };
+
     fetchProducts();
   }, []);
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Danh sách sản phẩm</h2>
+      <h2 style={{ marginBottom: "20px" }}>Sản phẩm nổi bật</h2>
 
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+          display: "flex",
+          flexDirection: "column",
           gap: "20px",
         }}
       >
@@ -38,34 +40,34 @@ const ListProducts_SP = () => {
             key={p.id}
             onClick={() => navigate(`/detail/${p.id}`)}
             style={{
-              border: "1px solid #ddd",
-              borderRadius: "10px",
-              padding: "12px",
-              textAlign: "center",
-              cursor: "pointer",
+              display: "flex",
+              gap: "16px",
+              border: "1px solid #e0e0e0",
+              borderRadius: "12px",
+              padding: "14px",
               background: "#fff",
+              cursor: "pointer",
               boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
-              transition: "transform 0.2s ease, box-shadow 0.2s ease",
+              transition: "0.25s",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "translateY(-4px)";
-              e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
+              e.currentTarget.style.boxShadow = "0 6px 14px rgba(0,0,0,0.15)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = "translateY(0)";
               e.currentTarget.style.boxShadow = "0 2px 6px rgba(0,0,0,0.1)";
             }}
           >
+            {/* HÌNH SẢN PHẨM */}
             <div
               style={{
-                width: "100%",
-                height: "200px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+                width: "180px",
+                height: "180px",
+                borderRadius: "10px",
                 overflow: "hidden",
-                borderRadius: "8px",
-                backgroundColor: "#f9f9f9",
+                backgroundColor: "#f5f5f5",
+                flexShrink: 0,
               }}
             >
               <img
@@ -79,15 +81,38 @@ const ListProducts_SP = () => {
               />
             </div>
 
-            <h4 style={{ margin: "10px 0 5px", fontSize: "1rem" }}>
-              {p.title}
-            </h4>
-            <p style={{ color: "#e63946", fontWeight: "bold", margin: "0" }}>
-              ${p.price}
-            </p>
-            <small style={{ color: "#555" }}>
-              ⭐ {p.rating_rate} | ({p.rating_count} đánh giá)
-            </small>
+            {/* THÔNG TIN SẢN PHẨM */}
+            <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+              <h3 style={{ margin: "0 0 8px", fontSize: "1.2rem" }}>
+                {p.title}
+              </h3>
+
+              <p
+                style={{
+                  color: "#1e88e5",
+                  fontSize: "1.1rem",
+                  fontWeight: "bold",
+                  margin: "0 0 6px",
+                }}
+              >
+                ${p.price}
+              </p>
+
+              <small style={{ color: "#555", marginBottom: "8px" }}>
+                ⭐ {p.rating_rate} | ({p.rating_count} đánh giá)
+              </small>
+
+              <p
+                style={{
+                  color: "#666",
+                  lineHeight: "1.4",
+                  maxHeight: "60px",
+                  overflow: "hidden",
+                }}
+              >
+                {p.description || "Không có mô tả."}
+              </p>
+            </div>
           </div>
         ))}
       </div>

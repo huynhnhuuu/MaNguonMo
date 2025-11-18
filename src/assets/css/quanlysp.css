@@ -1,110 +1,162 @@
+/* =============================== */
+/*         GLOBAL STYLE            */
+/* =============================== */
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f2f4f7;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #eef2f7;
   margin: 0;
   padding: 0;
 }
 
+/* Khung chính */
 .container {
-  max-width: 900px;
+  max-width: 1960px;
   margin: 40px auto;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 h2 {
   margin-top: 0;
-  color: #333;
+  color: #2b2b2b;
+  font-size: 22px;
+  font-weight: 600;
+  border-left: 4px solid #5ac8fa;
+  padding-left: 10px;
 }
 
-/* Nút nằm trên đầu bảng */
+/* =============================== */
+/*         TABLE SECTION           */
+/* =============================== */
+
+/* Nút phía trên bảng */
 .table-actions {
   display: flex;
-  justify-content: flex-start; /* căn trái */
-  margin-bottom: 10px; /* khoảng cách với bảng */
+  justify-content: flex-start;
+  margin-bottom: 15px;
 }
 
 .product-table {
   width: 100%;
   border-collapse: collapse;
-}
-
-.product-table th,
-.product-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 15px;
 }
 
 .product-table th {
-  background: #f0f0f0;
+  background: #f7f9fc;
+  color: #333;
+  font-weight: 600;
+  padding: 12px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.product-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ececec;
 }
 
 .product-table tr:hover {
-  background-color: #fafafa;
+  background-color: #f4faff;
+  transition: 0.2s;
 }
 
+/* Ảnh thumbnail */
 .thumb {
   width: 60px;
   height: 60px;
   object-fit: cover;
   border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
+
+/* =============================== */
+/*             BUTTONS             */
+/* =============================== */
 
 .btn {
   border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
+  padding: 7px 14px;
+  border-radius: 6px;
   cursor: pointer;
-  color: white;
-  margin-right: 4px;
-}
-
-.btn.green {
-  background-color: #28a745;
-}
-.btn.red {
-  background-color: #dc3545;
-}
-.btn.yellow {
-  background-color: #ffc107;
-  color: black;
-}
-.btn.blue {
-  background-color: #007bff;
-}
-.btn.gray {
-  background-color: #6c757d;
+  margin-right: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.2s;
 }
 
 .btn:hover {
-  opacity: 0.9;
+  opacity: 0.85;
+  transform: translateY(-1px);
 }
+
+/* Màu nút đẹp và tươi hơn */
+.btn.green {
+  background-color: #2ecc71;
+}
+.btn.red {
+  background-color: #e74c3c;
+}
+.btn.yellow {
+  background-color: #f1c40f;
+  color: #333;
+}
+.btn.blue {
+  background-color: #3498db;
+}
+.btn.gray {
+  background-color: #7f8c8d;
+}
+
+/* =============================== */
+/*              FORM               */
+/* =============================== */
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 label {
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
+  font-weight: 600;
   color: #444;
 }
 
 input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 10px;
+  border: 1px solid #cfd6df;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.2s;
 }
 
+input:focus {
+  border-color: #5ac8fa;
+  box-shadow: 0 0 4px rgba(90, 200, 250, 0.4);
+  outline: none;
+}
+
+/* Khu vực nút */
 .actions {
   display: flex;
   justify-content: flex-end;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 10px;
+  margin-top: 14px;
 }

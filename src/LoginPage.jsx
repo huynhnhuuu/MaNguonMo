@@ -72,7 +72,7 @@ const LoginPage = () => {
               src="https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Google_icon.png"
               alt="Google"
             />
-            <span>Đăng nhập Google</span>
+            <span>Google</span>
           </button>
 
           <button className="social-btn facebook">

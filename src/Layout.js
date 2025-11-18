@@ -1,5 +1,5 @@
 import "./assets/css/main.css";
-import anhlogo from "./assets/images//Ten-truong-do-1000x159.png";
+import anhlogo from "./assets/images/logo.png";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -23,38 +23,30 @@ const Layout = () => {
   return (
     <html>
       <header>
-        <div id="divheader" class="header1">
-          <div id="banner" class="banner1">
-            <div id="topleft">
-              <ul class="ul1">
-                <li>
-                  <a href="/#">TRANG CHỦ</a>
-                </li>
-                <li>
-                  <a href="/trang1">EGOV</a>
-                </li>
-                <li>
-                  <a href="/admin/products">QUẢN TRỊ</a>
-                </li>
-              </ul>
-            </div>
-            <div id="logo" class="logo1">
+        <div id="divheader" className="header1">
+          <div id="banner" className="banner1">
+            <div id="logo" className="logo1">
               <img src={anhlogo} width="548" />
             </div>
-            <div id="divtimkiem" style={{ width: "300px" }}>
-              Phần tìm kiếm
+
+            {/* ----- Ô tìm kiếm mới ----- */}
+            <div id="divtimkiem" className="search-box">
+              <input type="text" placeholder="Tìm kiếm..." />
+              <button>Tìm</button>
             </div>
           </div>
+
+          {/* ----- MENUBAR ----- */}
           <div id="menubar" className="menubar">
             <div className="menubar-left">
-              <a href="/menu1" className="menu-item">
-                Menu 1
+              <a href="/#" className="menu-item">
+                TRANG CHỦ
               </a>
-              <a href="/menu2" className="menu-item">
-                Menu 2
+              <a href="/trang1" className="menu-item">
+                EGOV
               </a>
-              <a href="/menu3" className="menu-item">
-                Menu 3
+              <a href="/admin/products" className="menu-item">
+                QUẢN TRỊ
               </a>
             </div>
 
@@ -75,11 +67,13 @@ const Layout = () => {
           </div>
         </div>
       </header>
+
       <body>
-        <div id="container" class="container">
+        <div id="container" className="container">
           <Outlet />
         </div>
       </body>
+
       <footer></footer>
     </html>
   );
