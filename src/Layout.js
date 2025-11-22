@@ -1,6 +1,6 @@
 import "./assets/css/main.css";
 import anhlogo from "./assets/images/logo.png";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const Layout = () => {
@@ -9,9 +9,7 @@ const Layout = () => {
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
+    if (storedUser) setUser(JSON.parse(storedUser));
   }, []);
 
   const handleLogout = () => {
@@ -21,36 +19,85 @@ const Layout = () => {
   };
 
   return (
-    <html>
+    <div className="layout">
+      {/* HEADER */}
       <header>
         <div id="divheader" className="header1">
-          <div id="banner" className="banner1">
+          {/* BANNER WITH LOGO + SEARCH */}
+          <div
+            id="banner"
+            className="banner1"
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "0px 20px",
+            }}
+          >
+            {/* LOGO */}
             <div id="logo" className="logo1">
-              <img src={anhlogo} width="548" />
+              <img
+                src={anhlogo}
+                alt="Logo"
+                className="logo-img"
+                style={{ height: "140px", objectFit: "contain" }}
+              />
             </div>
 
-            {/* ----- Ô tìm kiếm mới ----- */}
-            <div id="divtimkiem" className="search-box">
-              <input type="text" placeholder="Tìm kiếm..." />
-              <button>Tìm</button>
+            {/* SEARCH BOX */}
+            <div
+              id="divtimkiem"
+              className="search-box"
+              style={{ display: "flex", gap: "5px" }}
+            >
+              <input
+                type="text"
+                placeholder="Tìm kiếm..."
+                style={{
+                  padding: "8px",
+                  borderRadius: "5px",
+                  border: "1px solid #ccc",
+                }}
+              />
+              <button
+                type="button"
+                style={{ padding: "8px 15px", borderRadius: "5px" }}
+              >
+                Tìm
+              </button>
             </div>
           </div>
 
-          {/* ----- MENUBAR ----- */}
-          <div id="menubar" className="menubar">
-            <div className="menubar-left">
-              <a href="/#" className="menu-item">
+          {/* MENUBAR */}
+          <div
+            id="menubar"
+            className="menubar"
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "5px 20px",
+            }}
+          >
+            <div
+              className="menubar-left"
+              style={{ display: "flex", gap: "20px" }}
+            >
+              <Link to="/" className="menu-item">
                 TRANG CHỦ
-              </a>
-              <a href="/trang1" className="menu-item">
-                EGOV
-              </a>
-              <a href="/admin/products" className="menu-item">
+              </Link>
+              <Link to="/trang1" className="menu-item">
+                SẢN PHẨM
+              </Link>
+              <Link to="/admin/products" className="menu-item">
                 QUẢN TRỊ
-              </a>
+              </Link>
             </div>
 
-            <div className="menubar-right">
+            <div
+              className="menubar-right"
+              style={{ display: "flex", gap: "10px" }}
+            >
               {user ? (
                 <>
                   <span className="username">👤 {user.username}</span>
@@ -59,23 +106,29 @@ const Layout = () => {
                   </button>
                 </>
               ) : (
-                <a href="/login" className="login-link">
+                <Link to="/login" className="login-link">
                   Đăng nhập
-                </a>
+                </Link>
               )}
             </div>
           </div>
         </div>
       </header>
 
-      <body>
-        <div id="container" className="container">
-          <Outlet />
-        </div>
-      </body>
+      {/* NỘI DUNG */}
+      <main className="container">
+        <Outlet />
+      </main>
 
-      <footer></footer>
-    </html>
+      {/* FOOTER */}
+      <footer className="footer">
+        <div className="footer-row">
+          <span className="footer-item">© 2025 — Bản quyền thuộc về HN</span>
+          <span className="footer-item">Liên hệ: support@example.com</span>
+          <span className="footer-item">Hotline: 0933 690 031</span>
+        </div>
+      </footer>
+    </div>
   );
 };
 
