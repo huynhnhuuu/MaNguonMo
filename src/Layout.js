@@ -179,7 +179,6 @@ const Layout = () => {
         <Outlet />
       </main>
 
-      {/* ===== FOOTER ===== */}
       <footer
         className="footer"
         style={{
@@ -195,24 +194,74 @@ const Layout = () => {
           style={{
             display: "flex",
             justifyContent: "space-around",
+            flexWrap: "wrap",
           }}
         >
-          <span className="footer-item" style={{ color: "white" }}>
-            © 2025 — Bản quyền thuộc về HN
-          </span>
-          <span className="footer-item" style={{ color: "white" }}>
-            Liên hệ: support@example.com
-          </span>
-          <span className="footer-item" style={{ color: "white" }}>
-            Hotline: 0933 690 031
-          </span>
+          <div style={{ flex: "1 1 250px", marginBottom: "15px" }}>
+            <h4 style={{ marginBottom: "10px" }}>Về chúng tôi</h4>
+            <p>
+              Công ty HN cung cấp các sản phẩm chất lượng cao, dịch vụ tận tâm,
+              và giá cả hợp lý.
+            </p>
+          </div>
+
+          <div style={{ flex: "1 1 250px", marginBottom: "15px" }}>
+            <h4 style={{ marginBottom: "10px" }}>Liên hệ</h4>
+            <p>Email: support@example.com</p>
+            <p>Hotline: 0933 690 031</p>
+            <p>Địa chỉ: 33 Vĩnh Viễn, Phường Vườn Lài, TP.HCM</p>
+          </div>
+
+          <div style={{ flex: "1 1 250px", marginBottom: "15px" }}>
+            <h4 style={{ marginBottom: "10px" }}>Mạng xã hội</h4>
+            <p>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: theme.text, textDecoration: "underline" }}
+              >
+                Facebook
+              </a>
+            </p>
+            <p>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: theme.text, textDecoration: "underline" }}
+              >
+                Twitter
+              </a>
+            </p>
+            <p>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: theme.text, textDecoration: "underline" }}
+              >
+                Instagram
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div
+          style={{
+            borderTop: "1px solid rgba(255,255,255,0.3)",
+            marginTop: "20px",
+            paddingTop: "10px",
+            textAlign: "center",
+          }}
+        >
+          © 2025 — Bản quyền thuộc về HN
         </div>
       </footer>
     </div>
   );
 };
 
-// MENU ITEM STYLE
 const menuStyle = {
   color: "white",
   textDecoration: "none",
