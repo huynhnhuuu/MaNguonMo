@@ -36,10 +36,10 @@ body {
   align-items: center;
 }
 
-/* LOGO */
+/* ================= LOGO (ĐÃ CHỈNH) ================= */
 .logo1 {
   width: 100%;
-  height: 100%;
+  height: 100px; /* chỉnh thấp xuống */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,10 +47,11 @@ body {
 }
 
 .logo-img {
-  width: 500%;
-  height: 500%;
+  height: 100%; /* không bị quá cao */
+  width: auto; /* giữ tỉ lệ ngang */
   object-fit: contain;
 }
+/* =================================================== */
 
 /* CONTAINER */
 .container {
